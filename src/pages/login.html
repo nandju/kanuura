@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kanuura - Connexion</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="../styles/common.css">
+    <script src="../js/animations.js"></script>
+    <script src="../js/login.js"></script>
+</head>
+<body class="bg-[#111]">
+    <div class="min-h-screen flex items-center justify-center p-4" 
+         style="background-image: url('../images/37105.jpg'); background-size: cover; background-position: center; background-repeat: no-repeat;">
+        <div class="w-full max-w-[1000px] grid md:grid-cols-2 gap-8 bg-[#1A1A1A]/80 rounded-2xl p-8">
+            <!-- Section gauche avec l'image -->
+            <div class="hidden md:flex items-center justify-center">
+                <img src="../images/WhatsApp_Image_2024-11-15_at_10.22.01__1_-removebg-preview.png" alt="Kanuura Produits" 
+                     class="w-full max-w-md object-cover">
+            </div>
+
+            <!-- Section droite avec le formulaire -->
+            <div class="bg-[#222] rounded-xl p-6">
+                <h2 class="text-2xl font-bold text-white mb-6">Login</h2>
+                
+                <form id="loginForm" class="space-y-4">
+                    <div>
+                        <label class="block text-sm text-gray-300 mb-2">Email</label>
+                        <input type="email" name="email" required 
+                               class="w-full px-4 py-2 bg-[#333] text-white rounded-lg border border-gray-600 focus:border-orange-500 focus:ring-1 focus:ring-orange-500">
+                    </div>
+                    
+                    <div>
+                        <label class="block text-sm text-gray-300 mb-2">Password</label>
+                        <input type="password" name="password" required 
+                               class="w-full px-4 py-2 bg-[#333] text-white rounded-lg border border-gray-600 focus:border-orange-500 focus:ring-1 focus:ring-orange-500">
+                        <a href="/forgot-password" class="text-xs text-gray-400 hover:text-orange-500 mt-1 block text-right">
+                            Forgot Password?
+                        </a>
+                    </div>
+                    
+                    <button type="submit" 
+                            class="w-full py-2 px-4 bg-orange-600 hover:bg-orange-700 text-white rounded-lg transition-colors">
+                        Sign In
+                    </button>
+
+                    <div class="relative my-6">
+                        <div class="absolute inset-0 flex items-center">
+                            <div class="w-full border-t border-gray-600"></div>
+                        </div>
+                        <div class="relative flex justify-center text-sm">
+                            <span class="px-2 bg-[#222] text-gray-400">or continue with</span>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-3 gap-4">
+                        <button type="button" class="flex items-center justify-center p-2 border border-gray-600 rounded-lg hover:bg-[#333]">
+                            <img src="../images/icons8-google-48.png" alt="Google" class="w-5 h-5">
+                        </button>
+                        <button type="button" class="flex items-center justify-center p-2 border border-gray-600 rounded-lg hover:bg-[#333]">
+                            <img src="../images/icons8-github-48.png" alt="GitHub" class="w-5 h-5">
+                        </button>
+                        <button type="button" class="flex items-center justify-center p-2 border border-gray-600 rounded-lg hover:bg-[#333]">
+                            <img src="../images/icons8-facebook-48.png" alt="Facebook" class="w-5 h-5">
+                        </button>
+                    </div>
+
+                    <p class="text-center text-sm text-gray-400 mt-6">
+                        Don't have an account yet? 
+                        <a href="/signup" class="text-orange-500 hover:text-orange-400">Register for free</a>
+                    </p>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html> 

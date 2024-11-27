@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kanuura - Nos Produits</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="../styles/common.css">
+    <script src="../js/animations.js"></script>
+    <script src="../js/products.js"></script>
+</head>
+<body class="bg-amber-50">
+    <nav class="bg-brown-800 text-white p-4">
+        <div class="container mx-auto flex justify-between items-center">
+            <img src="../images/2-removebg-preview.png" alt="Kanuura Logo" class="h-12">
+            <div class="flex space-x-6">
+                <a href="/products" class=" text-black font-bold hover:text-amber-300">Produits</a>
+                <a href="/order-history" class=" text-black font-bold hover:text-amber-300">Historique</a>
+                <a href="/tracking" class=" text-black font-bold hover:text-amber-300">Suivi</a>
+                <button id="logoutBtn" class=" text-black font-bold hover:text-amber-300">Déconnexion</button>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container mx-auto py-8 px-4">
+        <section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- Carte produit -->
+            <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+                <img src="../images/MOUSSE.jpeg" alt="Chantilly Karité" class="w-full h-64 object-cover">
+                <div class="p-6">
+                    <h2 class="text-xl font-bold text-brown-800 mb-2">Chantilly Karité</h2>
+                    <p class="text-gray-600 mb-4">Crème légère et nourrissante pour une hydratation intense.</p>
+                    <div class="flex justify-between items-center">
+                        <span class="text-lg font-bold text-brown-800">15.99 €</span>
+                        <button class="add-to-cart bg-amber-600 text-white px-4 py-2 rounded hover:bg-amber-700 transition"
+                                data-id="1" data-name="Chantilly Karité" data-price="15.99">
+                            Ajouter au panier
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <!-- Répéter pour autres produits -->
+            <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+                <img src="../images/MOUSSE.jpeg" alt="Chantilly Karité" class="w-full h-64 object-cover">
+                <div class="p-6">
+                    <h2 class="text-xl font-bold text-brown-800 mb-2">Chantilly Karité</h2>
+                    <p class="text-gray-600 mb-4">Crème légère et nourrissante pour une hydratation intense.</p>
+                    <div class="flex justify-between items-center">
+                        <span class="text-lg font-bold text-brown-800">15.99 €</span>
+                        <button class="add-to-cart bg-amber-600 text-white px-4 py-2 rounded hover:bg-amber-700 transition"
+                                data-id="1" data-name="Chantilly Karité" data-price="15.99">
+                            Ajouter au panier
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+                <img src="../images/MOUSSE.jpeg" alt="Chantilly Karité" class="w-full h-64 object-cover">
+                <div class="p-6">
+                    <h2 class="text-xl font-bold text-brown-800 mb-2">Chantilly Karité</h2>
+                    <p class="text-gray-600 mb-4">Crème légère et nourrissante pour une hydratation intense.</p>
+                    <div class="flex justify-between items-center">
+                        <span class="text-lg font-bold text-brown-800">15.99 €</span>
+                        <button class="add-to-cart bg-amber-600 text-white px-4 py-2 rounded hover:bg-amber-700 transition"
+                                data-id="1" data-name="Chantilly Karité" data-price="15.99">
+                            Ajouter au panier
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+                <img src="../images/MOUSSE.jpeg" alt="Chantilly Karité" class="w-full h-64 object-cover">
+                <div class="p-6">
+                    <h2 class="text-xl font-bold text-brown-800 mb-2">Chantilly Karité</h2>
+                    <p class="text-gray-600 mb-4">Crème légère et nourrissante pour une hydratation intense.</p>
+                    <div class="flex justify-between items-center">
+                        <span class="text-lg font-bold text-brown-800">15.99 €</span>
+                        <button class="add-to-cart bg-amber-600 text-white px-4 py-2 rounded hover:bg-amber-700 transition"
+                                data-id="1" data-name="Chantilly Karité" data-price="15.99">
+                            Ajouter au panier
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+                <img src="../images/MOUSSE.jpeg" alt="Chantilly Karité" class="w-full h-64 object-cover">
+                <div class="p-6">
+                    <h2 class="text-xl font-bold text-brown-800 mb-2">Chantilly Karité</h2>
+                    <p class="text-gray-600 mb-4">Crème légère et nourrissante pour une hydratation intense.</p>
+                    <div class="flex justify-between items-center">
+                        <span class="text-lg font-bold text-brown-800">15.99 €</span>
+                        <button class="add-to-cart bg-amber-600 text-white px-4 py-2 rounded hover:bg-amber-700 transition"
+                                data-id="1" data-name="Chantilly Karité" data-price="15.99">
+                            Ajouter au panier
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+                <img src="../images/MOUSSE.jpeg" alt="Chantilly Karité" class="w-full h-64 object-cover">
+                <div class="p-6">
+                    <h2 class="text-xl font-bold text-brown-800 mb-2">Chantilly Karité</h2>
+                    <p class="text-gray-600 mb-4">Crème légère et nourrissante pour une hydratation intense.</p>
+                    <div class="flex justify-between items-center">
+                        <span class="text-lg font-bold text-brown-800">15.99 €</span>
+                        <button class="add-to-cart bg-amber-600 text-white px-4 py-2 rounded hover:bg-amber-700 transition"
+                                data-id="1" data-name="Chantilly Karité" data-price="15.99">
+                            Ajouter au panier
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+                <img src="../images/MOUSSE.jpeg" alt="Chantilly Karité" class="w-full h-64 object-cover">
+                <div class="p-6">
+                    <h2 class="text-xl font-bold text-brown-800 mb-2">Chantilly Karité</h2>
+                    <p class="text-gray-600 mb-4">Crème légère et nourrissante pour une hydratation intense.</p>
+                    <div class="flex justify-between items-center">
+                        <span class="text-lg font-bold text-brown-800">15.99 €</span>
+                        <button class="add-to-cart bg-amber-600 text-white px-4 py-2 rounded hover:bg-amber-700 transition"
+                                data-id="1" data-name="Chantilly Karité" data-price="15.99">
+                            Ajouter au panier
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Panier flottant -->
+        <div id="cart" class="fixed top-20 right-4 bg-white p-4 rounded-lg shadow-lg w-80">
+            <h2 class="text-lg font-bold text-brown-800 mb-4">Panier</h2>
+            <ul id="cart-items" class="space-y-2 mb-4"></ul>
+            <div class="border-t pt-4">
+                <p class="flex justify-between mb-4">
+                    <span>Total:</span>
+                    <span id="cart-total" class="font-bold">0.00 €</span>
+                </p>
+                <button id="checkout" class="w-full bg-amber-600 text-white py-2 rounded hover:bg-amber-700 transition">
+                    Commander
+                </button>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        let cart = [];
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const addToCartButtons = document.querySelectorAll('.add-to-cart');
+            addToCartButtons.forEach(button => {
+                button.addEventListener('click', addToCart);
+            });
+
+            document.getElementById('checkout').addEventListener('click', checkout);
+        });
+
+        function addToCart(e) {
+            const button = e.currentTarget;
+            const product = {
+                id: button.dataset.id,
+                name: button.dataset.name,
+                price: parseFloat(button.dataset.price)
+            };
+            
+            cart.push(product);
+            updateCart();
+            
+            // Animation de confirmation
+            button.textContent = 'Ajouté !';
+            button.disabled = true;
+            setTimeout(() => {
+                button.textContent = 'Ajouter au panier';
+                button.disabled = false;
+            }, 1000);
+        }
+
+        function updateCart() {
+            const cartItems = document.getElementById('cart-items');
+            const cartTotal = document.getElementById('cart-total');
+            cartItems.innerHTML = '';
+            
+            let total = 0;
+            cart.forEach((item, index) => {
+                const li = document.createElement('li');
+                li.className = 'flex justify-between items-center';
+                li.innerHTML = `
+                    <span>${item.name}</span>
+                    <div>
+                        <span class="mr-2">${item.price.toFixed(2)} €</span>
+                        <button class="text-red-500 hover:text-red-700" onclick="removeFromCart(${index})">×</button>
+                    </div>
+                `;
+                cartItems.appendChild(li);
+                total += item.price;
+            });
+
+            cartTotal.textContent = total.toFixed(2) + ' €';
+        }
+
+        function removeFromCart(index) {
+            cart.splice(index, 1);
+            updateCart();
+        }
+
+        function checkout() {
+            if (cart.length === 0) {
+                alert('Votre panier est vide !');
+                return;
+            }
+
+            // Envoyer la commande au serveur
+            const order = {
+                items: cart,
+                total: cart.reduce((sum, item) => sum + item.price, 0),
+                date: new Date()
+            };
+
+            // Simulation d'envoi au serveur
+            console.log('Commande envoyée:', order);
+            alert('Commande passée avec succès !');
+            
+            // Vider le panier
+            cart = [];
+            updateCart();
+        }
+    </script>
+</body>
+</html> 

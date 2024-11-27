@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kanuura - Tableau de bord</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="../styles/common.css">
+</head>
+<body class="bg-amber-50">
+    <nav class="bg-brown-800 text-white p-4">
+        <div class="container mx-auto flex justify-between items-center">
+            <img src="/assets/images/logo.png" alt="Kanuura Logo" class="h-8">
+            <div class="flex space-x-4">
+                <a href="/panier" class="hover:text-amber-300">Panier</a>
+                <a href="/commandes" class="hover:text-amber-300">Mes commandes</a>
+                <button id="logoutBtn" class="hover:text-amber-300">Déconnexion</button>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container mx-auto py-8">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <!-- Les produits seront injectés ici dynamiquement -->
+        </div>
+    </main>
+</body>
+</html> 

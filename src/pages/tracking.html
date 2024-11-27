@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kanuura - Suivi de Livraison</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="../styles/common.css">
+    <script src="../js/animations.js"></script>
+    <script src="../js/tracking.js"></script>
+</head>
+<body class="bg-amber-50">
+    <nav class="bg-brown-800 text-white p-4">
+        <div class="container mx-auto flex justify-between items-center">
+            <img src="../images/2-removebg-preview.png" alt="Kanuura Logo" class="h-12">
+            <div class="flex space-x-6">
+                <a href="/products" class="hover:text-amber-300">Produits</a>
+                <a href="/order-history" class="hover:text-amber-300">Historique</a>
+                <a href="/tracking" class="hover:text-amber-300 font-bold">Suivi</a>
+                <button id="logoutBtn" class="hover:text-amber-300">Déconnexion</button>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container mx-auto py-8 px-4">
+        <div class="max-w-2xl mx-auto">
+            <h1 class="text-2xl font-bold text-brown-800 mb-6">Suivi de Livraison</h1>
+            
+            <div class="bg-white rounded-lg shadow-lg p-6">
+                <div class="mb-6">
+                    <label class="block text-sm font-medium text-gray-700 mb-2">
+                        Numéro de commande
+                    </label>
+                    <div class="flex gap-4">
+                        <input type="text" id="order-number"
+                               class="flex-1 rounded-lg border-gray-300 focus:border-amber-500 focus:ring-amber-500"
+                               placeholder="Entrez votre numéro de commande">
+                        <button id="track-order"
+                                class="px-4 py-2 bg-amber-600 text-white rounded-lg hover:bg-amber-700 transition">
+                            Suivre
+                        </button>
+                    </div>
+                </div>
+
+                <div id="tracking-result" class="hidden">
+                    <div class="border-t pt-6">
+                        <h2 class="text-lg font-semibold text-brown-800 mb-4">État de la livraison</h2>
+                        
+                        <div class="space-y-4">
+                            <div class="flex items-center">
+                                <div class="flex-shrink-0 w-8 h-8 bg-green-500 rounded-full flex items-center justify-center">
+                                    <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                                    </svg>
+                                </div>
+                                <div class="ml-4">
+                                    <p class="text-sm font-medium text-gray-900">Commande confirmée</p>
+                                    <p class="text-sm text-gray-500" id="order-date"></p>
+                                </div>
+                            </div>
+                            
+                            <div id="tracking-steps"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const trackButton = document.getElementById('track-order');
+            trackButton.addEventListener('click', trackOrder);
+        });
+
+        function trackOrder() {
+            const orderNumber = document.getElementById('order-number').value;
+            if (!orderNumber) {
+                alert('Veuillez entrer un numéro de commande');
+                return;
+            }
+
+            // Simulation de suivi
+            const trackingSteps = [
+                { status: 'Commande confirmée', date: '2024-01-20 10:00', completed: true },
+                { status: 'En préparation', date: '2024-01-20 14:30', completed: true },
+                { status: 'Expédié', date: '2024-01-21 09:15', completed: true },
+                { status: 'En transit', date: '2024-01-22 08:00', completed: false },
+                { status: 'Livré', date: null, completed: false }
+            ];
+
+            displayTrackingResult(orderNumber, trackingSteps);
+        }
+
+        function displayTrackingResult(orderNumber, steps) {
+            const trackingResult = document.getElementById('tracking-result');
+            const trackingSteps = document.getElementById('tracking-steps');
+            const orderDate = document.getElementById('order-date');
+
+            trackingResult.classList.remove('hidden');
+            orderDate.textContent = new Date(steps[0].date).toLocaleString();
+            
+            trackingSteps.innerHTML = steps.slice(1).map((step, index) => `
+                <div class="flex items-center">
+                    <div class="flex-shrink-0 w-8 h-8 ${step.completed ? 'bg-green-500' : 'bg-gray-200'} rounded-full flex items-center justify-center">
+                        ${step.completed ? 
+                            `<svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                            </svg>` :
+                            `<span class="text-gray-500">${index + 2}</span>`
+                        }
+                    </div>
+                    <div class="ml-4">
+                        <p class="text-sm font-medium text-gray-900">${step.status}</p>
+                        ${step.date ? 
+                            `<p class="text-sm text-gray-500">${new Date(step.date).toLocaleString()}</p>` :
+                            ''
+                        }
+                    </div>
+                </div>
+            `).join('');
+        }
+    </script>
+</body>
+</html> 

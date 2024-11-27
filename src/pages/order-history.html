@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kanuura - Historique des Commandes</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="../styles/common.css">
+</head>
+<body class="bg-amber-50">
+    <nav class="bg-brown-800 text-white p-4">
+        <div class="container mx-auto flex justify-between items-center">
+            <img src="../images/2-removebg-preview.png" alt="Kanuura Logo" class="h-12">
+            <div class="flex space-x-6">
+                <a href="/products" class="hover:text-amber-300">Produits</a>
+                <a href="/order-history" class="hover:text-amber-300 font-bold">Historique</a>
+                <a href="/tracking" class="hover:text-amber-300">Suivi</a>
+                <button id="logoutBtn" class="hover:text-amber-300">Déconnexion</button>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container mx-auto py-8 px-4">
+        <h1 class="text-2xl font-bold text-brown-800 mb-6">Historique des Commandes</h1>
+        
+        <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+            <table class="w-full">
+                <thead class="bg-amber-100">
+                    <tr>
+                        <th class="px-6 py-3 text-left text-sm font-semibold text-brown-800">Date</th>
+                        <th class="px-6 py-3 text-left text-sm font-semibold text-brown-800">Produits</th>
+                        <th class="px-6 py-3 text-left text-sm font-semibold text-brown-800">Total</th>
+                        <th class="px-6 py-3 text-left text-sm font-semibold text-brown-800">Statut</th>
+                        <th class="px-6 py-3 text-left text-sm font-semibold text-brown-800">Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="order-history-body">
+                    <!-- Les commandes seront injectées ici -->
+                </tbody>
+            </table>
+        </div>
+    </main>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            loadOrderHistory();
+        });
+
+        function loadOrderHistory() {
+            // Simulation de données d'historique
+            const mockOrders = [
+                {
+                    id: '001',
+                    date: '2024-01-15',
+                    products: ['Chantilly Karité', 'Huile Pousse'],
+                    total: 35.98,
+                    status: 'Livré'
+                },
+                {
+                    id: '002',
+                    date: '2024-01-20',
+                    products: ['Leave-in Hydratant'],
+                    total: 17.99,
+                    status: 'En cours'
+                }
+            ];
+
+            const tbody = document.getElementById('order-history-body');
+            tbody.innerHTML = '';
+
+            mockOrders.forEach(order => {
+                const tr = document.createElement('tr');
+                tr.className = 'border-t border-gray-200';
+                tr.innerHTML = `
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-600">
+                        ${new Date(order.date).toLocaleDateString()}
+                    </td>
+                    <td class="px-6 py-4 text-sm text-gray-600">
+                        ${order.products.join(', ')}
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-600">
+                        ${order.total.toFixed(2)} €
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap">
+                        <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full 
+                                   ${order.status === 'Livré' ? 'bg-green-100 text-green-800' : 'bg-yellow-100 text-yellow-800'}">
+                            ${order.status}
+                        </span>
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-600">
+                        <button onclick="viewOrderDetails('${order.id}')"
+                                class="text-amber-600 hover:text-amber-800">
+                            Voir détails
+                        </button>
+                    </td>
+                `;
+                tbody.appendChild(tr);
+            });
+        }
+
+        function viewOrderDetails(orderId) {
+            // Implémenter la vue détaillée de la commande
+            alert(`Détails de la commande ${orderId}`);
+        }
+    </script>
+</body>
+</html> 

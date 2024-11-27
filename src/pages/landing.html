@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KANUURA - La source du bien être</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../styles/common.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#8B4513',
+                        secondary: '#FFD700',
+                        background: '#FFF5E6',
+                        text: '#4A2B0F'
+                    },
+                    fontFamily: {
+                        'poppins': ['Poppins', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        * {
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+
+        .fade-in.appear {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Masquer la scrollbar tout en gardant la fonctionnalité */
+        .hide-scroll {
+            -ms-overflow-style: none;  /* IE and Edge */
+            scrollbar-width: none;  /* Firefox */
+        }
+
+        .hide-scroll::-webkit-scrollbar {
+            display: none;  /* Chrome, Safari and Opera */
+        }
+
+        /* Animation pour les produits */
+        .product-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+
+        /* Animation de défilement fluide */
+        .smooth-scroll {
+            scroll-behavior: smooth;
+            scroll-snap-type: x mandatory;
+        }
+
+        .product-card {
+            scroll-snap-align: start;
+        }
+
+        /* Animation pour les statistiques */
+        .stat-number {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+
+        .stat-number.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+    <script src="../js/animations.js"></script>
+    <script src="../js/landing.js"></script>
+</head>
+<body class="bg-background text-text">
+    <!-- Bannière promotion -->
+    <div class="bg-primary text-white text-center py-2 text-sm">
+        LIVRAISON GRATUITE POUR LES COMMANDES AU-DESSUS DE 50€
+    </div>
+
+    <!-- Navigation -->
+    <nav class="bg-white shadow-lg">
+        <div class="container mx-auto px-4">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center">
+                    <img src="../images/2-removebg-preview.png" alt="Kanuura Logo" class="h-12">
+                </div>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#home" class="text-text hover:text-primary">Accueil</a>
+                    <a href="#about" class="text-text hover:text-primary">À propos</a>
+                    <a href="#products" class="text-text hover:text-primary">Produits</a>
+                    <a href="#contact" class="text-text hover:text-primary">Contact</a>
+                    <a href="/login" class="bg-primary text-white px-4 py-2 rounded-full hover:bg-opacity-90">
+                        Connexion
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative bg-background py-20">
+        <div class="container mx-auto px-4 flex flex-col md:flex-row items-center">
+            <div class="md:w-1/2 mb-10 md:mb-0">
+                <h1 class="text-5xl font-bold text-primary mb-6">
+                    Découvrez nos produits naturels
+                </h1>
+                <p class="text-lg mb-8">
+                    Des soins capillaires naturels pour sublimer votre beauté. Fabriqués avec des ingrédients biologiques sélectionnés avec soin.
+                </p>
+                <div class="flex space-x-4">
+                    <a href="#products" class="bg-primary text-white px-8 py-3 rounded-full hover:border-2 hover:border-primary hover:bg-transparent hover:text-primary">
+                        Nos Produits
+                    </a>
+                    <a href="#about" class="border-2 border-primary text-primary px-8 py-3 rounded-full hover:bg-primary hover:text-white">
+                        En savoir plus
+                    </a>
+                </div>
+            </div>
+            <div class="md:w-1/2 relative">
+                <div id="hero-carousel" class="relative w-full h-[400px] overflow-hidden">
+                    <img src="../images/SOIN-removebg-preview.png" alt="Produit 1" class="absolute w-[80%] h-[80%] object-contain mx-auto transition-opacity duration-1000 opacity-100">
+                    <img src="../images/WhatsApp_Image_2024-11-15_at_10.22.00-removebg-preview.png" alt="Produit 2" class="absolute w-[80%] h-[80%] object-contain mx-auto transition-opacity duration-1000 opacity-0">
+                    <img src="../images/WhatsApp_Image_2024-11-15_at_10.22.01__1_-removebg-preview.png" alt="Produit 3" class="absolute w-[80%] h-[80%] object-contain mx-auto transition-opacity duration-1000 opacity-0">
+                </div>
+                <div class="absolute -top-10 right-0 bg-secondary text-primary rounded-full p-4 shadow-lg">
+                    <span class="font-bold">NOUVEAU</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Products -->
+    <section id="products" class="py-20 bg-white overflow-hidden">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center text-primary mb-12 fade-in">Nos Produits Vedettes</h2>
+            <div class="relative">
+                <div class="overflow-x-auto hide-scroll smooth-scroll pb-4">
+                    <div class="flex space-x-6 min-w-max px-4">
+                        <!-- Produit 1 -->
+                        <div class="flex-none w-72 bg-white rounded-lg p-6 text-center hover:shadow-xl transition-shadow product-card">
+                            <img src="../images/MOUSSE.jpeg" alt="Moringa Powder" class="w-48 h-48 object-cover mx-auto mb-4 rounded-lg">
+                            <h3 class="text-xl font-semibold mb-2">Moringa Superfood Powder</h3>
+                            <p class="text-gray-600 mb-4">25.99 €</p>
+                            <button class="border-2 border-primary text-primary px-8 py-3 rounded-full hover:bg-primary hover:text-white">
+                                Voir le produit
+                            </button>
+                        </div>
+                        <!-- Produit 2 -->
+                        <div class="flex-none w-72 bg-white rounded-lg p-6 text-center hover:shadow-xl transition-shadow product-card">
+                            <img src="../images/MOUSSE.jpeg" alt="Coconut Oil" class="w-48 h-48 object-cover mx-auto mb-4 rounded-lg">
+                            <h3 class="text-xl font-semibold mb-2">Huile de Coco Bio</h3>
+                            <p class="text-gray-600 mb-4">35.99 €</p>
+                            <button class="border-2 border-primary text-primary px-8 py-3 rounded-full hover:bg-primary hover:text-white">
+                                Voir le produit
+                            </button>
+                        </div>
+                        <!-- Ajoutez plus de produits ici -->
+                        <div class="flex-none w-72 bg-white rounded-lg p-6 text-center hover:shadow-xl transition-shadow product-card">
+                            <img src="../images/MOUSSE.jpeg" alt="Coconut Oil" class="w-48 h-48 object-cover mx-auto mb-4 rounded-lg">
+                            <h3 class="text-xl font-semibold mb-2">Huile de Coco Bio</h3>
+                            <p class="text-gray-600 mb-4">35.99 €</p>
+                            <button class="border-2 border-primary text-primary px-8 py-3 rounded-full hover:bg-primary hover:text-white">
+                                Voir le produit
+                            </button>
+                        </div>
+                        <div class="flex-none w-72 bg-white rounded-lg p-6 text-center hover:shadow-xl transition-shadow product-card">
+                            <img src="../images/MOUSSE.jpeg" alt="Coconut Oil" class="w-48 h-48 object-cover mx-auto mb-4 rounded-lg">
+                            <h3 class="text-xl font-semibold mb-2">Huile de Coco Bio</h3>
+                            <p class="text-gray-600 mb-4">35.99 €</p>
+                            <button class="border-2 border-primary text-primary px-8 py-3 rounded-full hover:bg-primary hover:text-white">
+                                Voir le produit
+                            </button>
+                        </div>
+                        <div class="flex-none w-72 bg-white rounded-lg p-6 text-center hover:shadow-xl transition-shadow product-card">
+                            <img src="../images/MOUSSE.jpeg" alt="Coconut Oil" class="w-48 h-48 object-cover mx-auto mb-4 rounded-lg">
+                            <h3 class="text-xl font-semibold mb-2">Huile de Coco Bio</h3>
+                            <p class="text-gray-600 mb-4">35.99 €</p>
+                            <button class="border-2 border-primary text-primary px-8 py-3 rounded-full hover:bg-primary hover:text-white">
+                                Voir le produit
+                            </button>
+                        </div>
+                        <div class="flex-none w-72 bg-white rounded-lg p-6 text-center hover:shadow-xl transition-shadow product-card">
+                            <img src="../images/MOUSSE.jpeg" alt="Coconut Oil" class="w-48 h-48 object-cover mx-auto mb-4 rounded-lg">
+                            <h3 class="text-xl font-semibold mb-2">Huile de Coco Bio</h3>
+                            <p class="text-gray-600 mb-4">35.99 €</p>
+                            <button class="border-2 border-primary text-primary px-8 py-3 rounded-full hover:bg-primary hover:text-white">
+                                Voir le produit
+                            </button>
+                        </div>
+                        <div class="flex-none w-72 bg-white rounded-lg p-6 text-center hover:shadow-xl transition-shadow product-card">
+                            <img src="../images/MOUSSE.jpeg" alt="Coconut Oil" class="w-48 h-48 object-cover mx-auto mb-4 rounded-lg">
+                            <h3 class="text-xl font-semibold mb-2">Huile de Coco Bio</h3>
+                            <p class="text-gray-600 mb-4">35.99 €</p>
+                            <button class="border-2 border-primary text-primary px-8 py-3 rounded-full hover:bg-primary hover:text-white">
+                                Voir le produit
+                            </button>
+                        </div>
+                        <!-- ... -->
+                    </div>
+                </div>
+                <div class="h-1 bg-gray-200 rounded-full mt-4">
+                    <div class="scroll-progress-bar h-full bg-primary rounded-full transition-all duration-300" style="width: 0%"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="py-16 bg-white text-white">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+                <div>
+                    <div class="text-4xl text-primary mb-2">8+</div>
+                    <div class="text-xl text-primary mb-2">Années d'expérience</div>
+                </div>
+                <div>
+                    <div class="text-4xl text-primary mb-2">100%</div>
+                    <div class="text-xl text-primary mb-2">Satisfaction garantie</div>
+                </div>
+                <div>
+                    <div class="text-4xl text-primary mb-2">240+</div>
+                    <div class="text-xl text-primary mb-2">Produits</div>
+                </div>
+                <div>
+                    <div class="text-4xl text-primary mb-2">1000+</div>
+                    <div class="text-xl text-primary mb-2">Clients satisfaits</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-primary text-white py-10">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <img src="../images/2-removebg-preview.png" alt="Kanuura Logo" class="h-12 mb-4">
+                    <p class="text-sm">La source du bien être</p>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Contact</h4>
+                    <p>Yoff Virage Dakar Sénégal</p>
+                    <p>+221 77 648 93 87</p>
+                    <p>+221 77 541 81 51</p>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Liens rapides</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#about" class="hover:text-secondary">À propos</a></li>
+                        <li><a href="#products" class="hover:text-secondary">Produits</a></li>
+                        <li><a href="#contact" class="hover:text-secondary">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Newsletter</h4>
+                    <form class="flex">
+                        <input type="email" placeholder="Votre email" 
+                               class="px-4 py-2 rounded-l-full text-gray-800 w-full">
+                        <button class="bg-secondary text-primary px-6 py-2 rounded-r-full hover:bg-opacity-90">
+                            OK
+                        </button>
+                    </form>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 mt-8 pt-8 text-center">
+                <p>&copy; 2024 KANUURA. Tous droits réservés.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Animation au défilement
+        const fadeElements = document.querySelectorAll('.fade-in');
+        const statNumbers = document.querySelectorAll('.stat-number');
+
+        const appearOptions = {
+            threshold: 0.15,
+            rootMargin: "0px 0px -100px 0px"
+        };
+
+        const appearOnScroll = new IntersectionObserver(function(entries, observer) {
+            entries.forEach(entry => {
+                if (!entry.isIntersecting) return;
+                entry.target.classList.add('appear');
+                observer.unobserve(entry.target);
+            });
+        }, appearOptions);
+
+        fadeElements.forEach(element => {
+            appearOnScroll.observe(element);
+        });
+
+        // Animation des statistiques
+        const statsObserver = new IntersectionObserver(function(entries, observer) {
+            entries.forEach(entry => {
+                if (!entry.isIntersecting) return;
+                entry.target.classList.add('visible');
+                
+                // Animation du compteur
+                const target = parseInt(entry.target.getAttribute('data-target'));
+                let count = 0;
+                const updateCount = () => {
+                    const increment = target / 50;
+                    if (count < target) {
+                        count += increment;
+                        entry.target.textContent = Math.ceil(count);
+                        requestAnimationFrame(updateCount);
+                    } else {
+                        entry.target.textContent = target;
+                    }
+                };
+                updateCount();
+                
+                observer.unobserve(entry.target);
+            });
+        }, appearOptions);
+
+        statNumbers.forEach(stat => {
+            statsObserver.observe(stat);
+        });
+
+        // Défilement fluide des produits
+        const productContainer = document.querySelector('.smooth-scroll');
+        let isDown = false;
+        let startX;
+        let scrollLeft;
+
+        productContainer.addEventListener('mousedown', (e) => {
+            isDown = true;
+            productContainer.style.cursor = 'grabbing';
+            startX = e.pageX - productContainer.offsetLeft;
+            scrollLeft = productContainer.scrollLeft;
+            productContainer.style.scrollBehavior = 'auto';
+        });
+
+        productContainer.addEventListener('mouseleave', () => {
+            isDown = false;
+            productContainer.style.cursor = 'grab';
+        });
+
+        productContainer.addEventListener('mouseup', () => {
+            isDown = false;
+            productContainer.style.cursor = 'grab';
+            productContainer.style.scrollBehavior = 'smooth';
+        });
+
+        productContainer.addEventListener('mousemove', (e) => {
+            if (!isDown) return;
+            e.preventDefault();
+            const x = e.pageX - productContainer.offsetLeft;
+            const walk = (x - startX) * 2;
+            productContainer.scrollLeft = scrollLeft - walk;
+        });
+
+        // Animation au chargement de la page
+        document.addEventListener('DOMContentLoaded', () => {
+            setTimeout(() => {
+                document.querySelectorAll('.fade-in').forEach((element, index) => {
+                    setTimeout(() => {
+                        element.classList.add('appear');
+                    }, index * 200);
+                });
+            }, 500);
+        });
+    </script>
+</body>
+</html>
